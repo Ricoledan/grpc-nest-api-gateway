@@ -31,8 +31,12 @@ export class AuthGuard implements CanActivate {
 
     const token: string = bearer[1];
 
-    const { status, userId }: ValidateResponse = await this.service.validate(token);
+    const { status, userId }: ValidateResponse = await this.service.validate(
+      token,
+    );
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     req.user = userId;
 
     if (status !== HttpStatus.OK) {

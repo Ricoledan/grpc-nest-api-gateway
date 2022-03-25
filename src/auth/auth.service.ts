@@ -19,6 +19,8 @@ export class AuthService {
   }
 
   public async validate(token: string): Promise<ValidateResponse> {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return firstValueFrom(this.svc.validate({ token }));
   }
 }
